@@ -4,8 +4,6 @@ const list = document.querySelector(".listvalue");
 
 let tasks = [];
 
-
-// LOAD tasks when page starts
 window.addEventListener("DOMContentLoaded", () => {
   const storedTasks = localStorage.getItem("tasks");
 
@@ -18,8 +16,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-// ADD task
 btnn.addEventListener("click", () => {
 
   const text = inputv.value;
@@ -36,16 +32,12 @@ btnn.addEventListener("click", () => {
 
 });
 
-
-// ENTER key support
 inputv.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     btnn.click();
   }
 });
 
-
-// FUNCTION to create task element
 function createTask(text) {
 
   const li = document.createElement("li");
@@ -53,14 +45,18 @@ function createTask(text) {
   const deletebtn = document.createElement("button");
   const donebtn = document.createElement("button");
 
+  deletebtn.classList.add("delete-btn");
+  donebtn.classList.add("done-btn");
+
   deletebtn.innerText = "Delete";
   donebtn.innerText = "Done";
+  const btnGroup = document.createElement("div");
+
+  btnGroup.append(donebtn);
+  btnGroup.append(deletebtn);
 
   li.innerText = text;
-
-  li.appendChild(donebtn);
-  li.appendChild(deletebtn);
-
+  li.appendChild(btnGroup);
   list.appendChild(li);
 
 
@@ -75,7 +71,10 @@ function createTask(text) {
 
   donebtn.addEventListener("click", () => {
     li.classList.toggle("completed");
-    donebtn.innerText = "UNDO";
+    if (donebtn.innerText === "Done")
+      donebtn.innerText = "Undo";
+    else
+      donebtn.innerText = "Done";
   });
 
 }
