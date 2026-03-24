@@ -1,0 +1,15 @@
+ul {
+  margin-top: 20px;
+}
+
+li {
+  background: lightgray;
+  padding: 8px;
+  margin: 5px 0;
+  list-style: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
