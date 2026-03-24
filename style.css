@@ -24,11 +24,10 @@ ul {
 li {
   display: flex;
   align-items: center;
-  justify-content: center;
   background-color: #dda15e;
-  margin: 5px;
+  margin: 5px auto;
   height: 3rem;
-  width: 800px;
+  width: 400px;
   list-style: none;
   font-family: 'DM Sans';
   justify-content: space-around;
@@ -79,7 +78,7 @@ li div {
   padding: 5px;
   margin-right: 5px;
   height: 40px;
-  width: 200px;
+  width: 10rem;
   border-radius: 10px;
   border: none;
   font-family: 'DM Sans';
@@ -110,4 +109,34 @@ li div {
   height: fit-content;
   margin: 10px;
   background-color: #fefae0;
+}
+
+@media (max-width:600px) {
+  .content {
+    flex-direction: column;
+    height: 20vh;
+    margin-bottom: 10px;
+
+  }
+
+  .list {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  li {
+    width: 90%;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .inputtext {
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
 }
